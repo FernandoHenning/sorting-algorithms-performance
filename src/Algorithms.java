@@ -1,6 +1,13 @@
+
+
 public class Algorithms {
 
-    static int[] bubbleSort(int[] array){
+    private static void swap(int[] array, int i, int j){
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    public static int[] bubbleSort(int[] array){
         int size = array.length;
         boolean swapped = false;
         //  iterate through each element
@@ -10,9 +17,7 @@ public class Algorithms {
             for (int j = 0; j < (size-i-1); j++) {
                 if (array[j] > array[j + 1]){
                     swapped = true;
-                    int temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
+                    swap(array, j, j+1);
                 }
             }
             //  array already sorted
@@ -23,7 +28,7 @@ public class Algorithms {
         return array;
     }
 
-    static int[] selectionSort(int[] array){
+    public static int[] selectionSort(int[] array){
         int size = array.length;
         for (int i = 0; i < (size - 1); i++) {
             int min_index = i;
@@ -32,12 +37,35 @@ public class Algorithms {
                     min_index += 1;
                 }
             }
-            int temp = array[i];
-            array[i] = array[min_index];
-            array[min_index] = temp;
+            swap(array,i,min_index);
         }
         return array;
     }
 
+    public static void quickSort(int low, int high, int[] array){
+        if(low<high){
+            int j = quickSortPartition(low, high,array);
+            quickSort(low, j, array);
+            quickSort(j+1, high, array);
+        }
+    }
+    private static int quickSortPartition(int low, int high, int[] array){
+        int pivot = array[low];
+        int i = low;
+        int j = high;
 
+        while (i<j){
+            do {
+                i++;
+            }while (array[i]<=pivot);
+            do {
+                j--;
+            }while (array[j]>pivot);
+            if(i<j){
+                swap(array, i,j);
+            }
+        }
+        swap(array, low, j);
+        return j;
+    }
 }
