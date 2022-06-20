@@ -42,31 +42,25 @@ public class Algorithms {
         return array;
     }
 
-    public static void quickSort(int low, int high, int[] array){
-        if(low<high){
-            int j = quickSortPartition(low, high,array);
-            quickSort(low, j, array);
-            quickSort(j+1, high, array);
+    static void quickSort(int low, int high, int[] arr) {
+        if (low < high) {
+            int pi = quickSortPartition(arr, low, high);
+            quickSort(low, pi-1, arr);
+            quickSort(pi+1, high, arr);
         }
     }
-    private static int quickSortPartition(int low, int high, int[] array){
-        int pivot = array[low];
-        int i = low;
-        int j = high;
+    static int quickSortPartition(int[] arr, int low, int high) {
+        int pivot = arr[high];
+        int i = (low - 1);
 
-        while (i<j){
-            do {
+        for(int j = low; j <= high - 1; j++) {
+            if (arr[j] < pivot) {
                 i++;
-            }while (array[i]<=pivot);
-            do {
-                j--;
-            }while (array[j]>pivot);
-            if(i<j){
-                swap(array, i,j);
+                swap(arr, i, j);
             }
         }
-        swap(array, low, j);
-        return j;
+        swap(arr, i + 1, high);
+        return (i + 1);
     }
 
     public static void dualPivotQuickSort(int low, int high, int[] array){
