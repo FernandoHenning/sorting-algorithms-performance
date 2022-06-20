@@ -46,6 +46,7 @@ According to the results obtained by my computer these are the best algorithms b
 |--------------------|-----------|------|
 | 100                | Quicksort |  2.8201E-5    |
 | 1,000              | Quicksort |3.127E-4     |
-| 10,000             | Quicksort |    0.0010133  |
+| 10,000             | Quicksort |    0.0010133  |  
+
 As we can see the fastest algorithm was Quicksort. Curious, since, in theory, Dual Pivot Quicksort is a bit faster.  
 Performing multiple runs I obtained different results, but the top positions were always between Quicksort and Dual Pivot Quicksort.
