@@ -3,7 +3,7 @@
 In this project I just wanted to test some sorting algorithms that are of interest to me.
 The purpose of this is to compare the execution times of each algorithm with a list of random numbers with different sizes.
 
-Now, I present the results together with the theoretical complexity using the notation big(O) and a short explanation of them
+Now, I present the results together with the theoretical complexity using the  big(O) notation and a short explanation of them
 ## Dual Pivot Quicksort
 Dual pivot quick sort is a little bit faster than the original single pivot quicksort. The idea of dual pivot  is to take two pivots, one in the left end of the array and the second, in the right end of the array. The left pivot must be less than or equal to the right pivot, so we swap them if necessary.
 ### Big(O) complexity = O(n^2)
